@@ -105,35 +105,22 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
             try {
                 JSONObject jsonObject;
-
-                Log.i("check point 01", "ok");
-
                     jsonObject = new JSONObject(result);
+                
                     JSONObject weather = jsonObject.getJSONArray("weather").getJSONObject(0);
                     JSONObject main = jsonObject.getJSONObject("main");
+                
                     a = main.getString("temp_min");
                     b = main.getString("temp_max");
                     c = "Humidity: " + main.getString("humidity");
                     d = "Pressure: " + main.getString("pressure") + " Pa";
 
-                    Log.i("check point 02", "ok");
-
-                    Log.i("check point 03", "ok");
-
-                    Log.i("check point 04", "ok");
-                    //A = weather.getString("description");
-
-                    Log.i("check point 1", "ok");
-                    Log.i("a: ", a);
-                    Log.i("b: ", b);
                     double a1 = Double.parseDouble(a);
-                    Log.i("check point 12", "ok");
                     double b1 = Double.parseDouble(b);
-                    Log.i("check point 2", "ok");
+                
                     a1 = a1 - 273.15;
                     b1 = b1 - 273.15;
-
-                    Log.i("check point 3", "ok");
+                
                     String a2 = String.valueOf(a1);
                     String a3 = "min. temp: " + a2 + "°C";
                     String b2 = String.valueOf(b1);
